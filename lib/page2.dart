@@ -6,6 +6,10 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blue,
+      child: Hero(
+        tag: "tag",
+        child: Icon(Icons.grid_4x4,size: 60,color: Colors.red,),
+      ),
     );
   }
 }

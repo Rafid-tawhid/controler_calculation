@@ -29,25 +29,26 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget {
 
 
+
+
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
+  var _current=0;
+  final pages=[Page1(),Page2(),Page3()];
   PageController _pageController=PageController(
     initialPage: 0,
+
+
   );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        children: [
-          Page1(),
-          Page2(),
-          Page3(),
-        ],
-      ),
+      body: pages[_current],
 
       appBar: AppBar(
         title: Text("AppBar"),
@@ -77,12 +78,21 @@ class _HomePageState extends State<HomePage> {
 
 
       bottomNavigationBar: BottomNavigationBar(
+
+        currentIndex: _current,
+
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.chat),title: Text("Chat")),
           BottomNavigationBarItem(icon: Icon(Icons.home),title: Text("Home")),
           BottomNavigationBarItem(icon: Icon(Icons.person),title: Text("Profile")),
 
         ],
+        onTap: (index){
+          setState(() {
+
+            _current=index;
+          });
+        },
 
 
 
