@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_app/page1.dart';
+import 'package:food_delivery_app/page2.dart';
+
+import 'page3.dart';
 
 
 void main() {
@@ -30,9 +34,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  PageController _pageController=PageController(
+    initialPage: 0,
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: PageView(
+        controller: _pageController,
+        children: [
+          Page1(),
+          Page2(),
+          Page3(),
+        ],
+      ),
 
       appBar: AppBar(
         title: Text("AppBar"),
@@ -57,64 +72,8 @@ class _HomePageState extends State<HomePage> {
         ),
 
       ),
-      body: ListView(
+      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add,color: Colors.white,),backgroundColor: Colors.red,),
 
-        children: [
-          Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Stack(
-                  alignment: Alignment.center,
-                  overflow: Overflow.visible,
-                  children: [
-                    Container(
-                      height: 100,
-                      width: 100,
-                      color: Colors.red,
-                    ),
-                    Positioned(
-                      bottom: -20,
-                        child: CircleAvatar(radius: 25,backgroundColor: Colors.blueAccent,))
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-              ),
-            ],
-          )
-        ],
-      ),
 
 
       bottomNavigationBar: BottomNavigationBar(
@@ -128,6 +87,7 @@ class _HomePageState extends State<HomePage> {
 
 
       ),
+
     );
   }
 }
