@@ -39,7 +39,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var _current=0;
-  final pages=[Page1(),Page2(),Page3()];
+  final pages=[Page1(),Page2(),CameraDemo()];
   PageController _pageController=PageController(
     initialPage: 0,
 
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_current],
+
 
       appBar: AppBar(
         title: Text("AppBar"),
